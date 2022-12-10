@@ -2,7 +2,6 @@ name: Build and Deploy
 permissions:
   contents: write
 on:
-  push:
   workflow_dispatch:
   repository_dispatch:
 
@@ -31,5 +30,18 @@ jobs:
           FOLDER: out
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "image generated"
+      
+      - name: Trigger FB hook
+        uses: fjogeleit/http-request-action@v1
+        id: myRequest        
+        with:
+          url: ${{ secrets.FB_TRIGGER_ENDPOINT }}
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"secret": "${{ secrets.FB_TRIGGER_SECRET }}", "url": "https://raw.githubusercontent.com/jd-dev/gasnoti-poster-maker/generated/poster.png", "message": "gas price update!"}'
 
+      - name: Show Response
+        run: |
+          echo ${{ steps.myRequest.outputs.response }}
+          echo ${{ steps.myRequest.outputs.headers }}
           
