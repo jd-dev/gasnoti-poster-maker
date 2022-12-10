@@ -4,18 +4,18 @@ import os
 import time
 from PIL import Image, ImageDraw, ImageFont 
 
-TODAY_X = 350
-TOMORROW_X = 560
-DIFF_X = 760
+TODAY_X = 420
+TOMORROW_X = 640
+DIFF_X = 900
 COLOR_RED = "#E82900"
 COLOR_GREEN = "#34CB46"
 position_y = {
-    "gasohol_95": 245,
-    "gasohol_91": 325,
-    "gasohol_e20": 405,
-    "gasohol_e85": 485,
-    "diesel_b7": 570,
-    "diesel_b20": 650,
+    "gasohol_95": 330,
+    "gasohol_91": 440,
+    "gasohol_e20": 550,
+    "gasohol_e85": 660,
+    "diesel_b7": 770,
+    "diesel_b20": 880,
 }
 
 class myTemplate(): 
@@ -26,9 +26,9 @@ class myTemplate():
     def draw(self):        
         self.prices.sort(key=lambda a: a['rank'])
         
-        img = Image.open("template.png", 'r').convert('RGB') #Opens Template Image
+        img = Image.open("template_new.jpg", 'r').convert('RGB') #Opens Template Image
         font_path = "./assets/fonts/NotoSansThai-Bold.ttf"
-        font = ImageFont.truetype(font_path, 40)
+        font = ImageFont.truetype(font_path, 60)
         imgdraw=ImageDraw.Draw(img)
 
         for price in self.prices:
