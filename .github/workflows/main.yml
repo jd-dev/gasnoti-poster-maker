@@ -35,6 +35,7 @@ jobs:
         uses: fjogeleit/http-request-action@v1
         id: myRequest        
         with:
+          timeout: 30000
           url: ${{ secrets.FB_TRIGGER_ENDPOINT }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
