@@ -1,0 +1,54 @@
+{
+  "data": {
+    "prices": [
+      {
+        "name": "gasohol_95",
+        "today": "32.31",
+        "tomorrow": "123.23",
+        "diff": "+0.2",
+        "rank": 1,
+        "indicator": 1
+      },
+      {
+        "name": "gasohol_91",
+        "today": "32.31",
+        "tomorrow": "123.23",
+        "diff": "+0.2",
+        "rank": 2,
+        "indicator": 0
+      },
+      {
+        "name": "gasohol_e20",
+        "today": "32.31",
+        "tomorrow": "123.23",
+        "diff": "+0.2",
+        "rank": 3,
+        "indicator": 0
+      },
+      {
+        "name": "gasohol_e85",
+        "today": "32.31",
+        "tomorrow": "123.23",
+        "diff": "+0.2",
+        "rank": 4,
+        "indicator": -1
+      },
+      {
+        "name": "diesel_b7",
+        "today": "32.31",
+        "tomorrow": "123.23",
+        "diff": "+0.2",
+        "rank": 5,
+        "indicator": 0
+      },
+      {
+        "name": "diesel_b20",
+        "today": "32.31",
+        "tomorrow": "123.23",
+        "diff": "+0.2",
+        "rank": 6,
+        "indicator": 1
+      }
+    ]
+  }
+}
