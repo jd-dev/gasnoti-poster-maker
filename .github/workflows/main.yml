@@ -1,0 +1,35 @@
+name: Build and Deploy 
+permissions:
+  contents: write
+on:
+  push:
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Extract new payload
+        run: |
+          payload='${{toJson(github.event.client_payload)}}'
+          echo "$payload" > payload.json
+          
+      - name: Generate image template
+        run: |
+          pip uninstall pillow
+          pip install Pillow
+          python3 main.py          
+
+      - name: Push artifact
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: generated
+          FOLDER: out
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "image generated"
+
+          
